@@ -455,6 +455,7 @@ svg {
 }
 @media screen and (max-width: 550px) {
   .ip-container {
+    top: 23vh;
     width: 95vw;
   }
   .wheel-container {
@@ -462,6 +463,8 @@ svg {
   }
   .deal-wheel {
     left: 12vw;
+    outline: 5px solid black;
+    width: 70vw;
   }
   .cap {
     position: absolute;
