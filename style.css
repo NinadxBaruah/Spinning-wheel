@@ -450,3 +450,20 @@ svg {
     left: 0;
   }
 }
+@media screen and (max-width: 550px) {
+  .ip-container {
+    width: 95vw;
+  }
+  .wheel-container {
+    width: 95vw;
+  }
+  .deal-wheel {
+    left: 12vw;
+  }
+  .cap {
+    position: absolute;
+    left: 27vw;
+  }
+  .btn-spin {
+  }
+}
