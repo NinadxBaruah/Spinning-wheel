@@ -411,6 +411,7 @@ svg {
   .ip-container {
     position: relative;
     left: 0;
+    top: 15vh;
     width: 50vw;
   }
   .input-container input {
@@ -425,6 +426,7 @@ svg {
     margin-right: 0;
   }
   .wheel-container {
+    top: 10vh;
     position: relative;
     justify-content: center;
     left: 0;
