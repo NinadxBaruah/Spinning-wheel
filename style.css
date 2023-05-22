@@ -465,5 +465,8 @@ svg {
     left: 27vw;
   }
   .btn-spin {
+    position: absolute;
+    top: 3vh;
+    left: 18vw;
   }
 }
