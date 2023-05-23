@@ -377,14 +377,14 @@ svg {
   width: 3vw;
   font-size: 1vw;
   height: 3.5vh;
-  margin-left: 2vh;
-  margin-right: 2vh;
+  /* margin-left: 2vh;
+  margin-right: 2vh; */
 }
 #reset-btn {
   width: 3vw;
   height: 3.5vh;
   font-size: 1vw;
-  margin-right: 2vh;
+  /* margin-right: 2vh; */
   padding: 0.1vw;
 }
 .wheel-container {
@@ -404,6 +404,7 @@ svg {
   .ip-container {
     right: 12vw;
   }
+
   .wheel-container {
     left: 12vw;
   }
@@ -413,20 +414,20 @@ svg {
     position: relative;
     left: 0;
     top: 15vh;
-    width: 50vw;
+    width: 100%;
   }
   .main-div {
     flex-direction: column;
   }
   .input-container input {
-    width: 30vw;
+    width: 70%;
     height: 3.5vh;
   }
   #submit-btn {
-    width: 5vw;
+    width: 14%;
   }
   #reset-btn {
-    width: 5vw;
+    width: 14%;
     margin-right: 0;
   }
   .wheel-container {
@@ -441,14 +442,14 @@ svg {
     width: 67vw;
   }
   .input-container input {
-    width: 30vw;
+    width: 70%;
     height: 3.5vh;
   }
   #submit-btn {
-    width: 5vw;
+    width: 14%;
   }
   #reset-btn {
-    width: 5vw;
+    width: 14%;
     margin-right: 0;
   }
   .wheel-container {
@@ -524,4 +525,7 @@ svg {
   /* position: absolute; */
   top: 90vh;
   /* overflow-y: scroll; */
+}
+.textarea {
+  display: block;
 }
