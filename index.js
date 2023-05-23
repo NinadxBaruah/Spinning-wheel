@@ -2,8 +2,9 @@ const submitButton = document.getElementById("submit-btn");
 const resetButton = document.getElementById("reset-btn");
 const inputID = document.getElementById("inputId");
 const insertName = document.getElementById("insert-name");
-let deleteIcons = document.querySelectorAll(".delete-icon");
-let deleteIconsArray = Array.from(deleteIcons);
+const deleteIcons = document.querySelectorAll(".delete-icon");
+const deleteIconsArray = Array.from(deleteIcons);
+const winnerTextArea = document.querySelector(".winner-textarea");
 console.log(deleteIconsArray);
 const prizes = [
   {
@@ -119,7 +120,7 @@ const selectPrize = () => {
   const selected = Math.floor(rotation / prizeSlice);
   prizeNodes[selected].classList.add(selectedClass);
   reaper.dataset.reaction = prizeNodes[selected].dataset.reaction;
-  console.log(selected);
+  winnerTextArea.value += perticipents[selected].toLocaleUpperCase() + ", ";
 };
 
 trigger.addEventListener("click", () => {
