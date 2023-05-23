@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-outline: 2px solid greenyellow;
+  /* outline: 2px solid greenyellow; */
 }
 
 html,
@@ -394,8 +394,7 @@ svg {
 }
 .ip-container {
   border: 2px solid black;
-  overflow-y: scroll;
-  overflow-x: scroll;
+
   /* position: absolute; */
   right: 18vw;
   top: 10.7vh;
@@ -415,6 +414,9 @@ svg {
     left: 0;
     top: 15vh;
     width: 50vw;
+  }
+  .main-div {
+    flex-direction: column;
   }
   .input-container input {
     width: 30vw;
@@ -469,7 +471,7 @@ svg {
     width: 70vw;
   }
   .cap {
-    /* position: absolute; */
+    position: absolute;
     left: 27vw;
   }
   .btn-spin {
@@ -515,6 +517,7 @@ svg {
 }
 .main-div {
   outline: 3px solid yellowgreen;
+  display: flex;
 }
 .content-container {
   width: 70vw;
