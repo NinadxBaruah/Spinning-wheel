@@ -10,12 +10,12 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   display: grid;
   place-items: center;
-  overflow: hidden;
 }
 
 .deal-wheel {
@@ -389,12 +389,14 @@ svg {
 }
 .wheel-container {
   border: 2px solid black;
-  position: absolute;
+  /* position: absolute; */
   left: 18vw;
 }
 .ip-container {
   border: 2px solid black;
-  position: absolute;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  /* position: absolute; */
   right: 18vw;
   top: 10.7vh;
   height: 78vh;
@@ -467,11 +469,11 @@ svg {
     width: 70vw;
   }
   .cap {
-    position: absolute;
+    /* position: absolute; */
     left: 27vw;
   }
   .btn-spin {
-    position: absolute;
+    /* position: absolute; */
     top: 3vh;
     left: 18vw;
   }
@@ -489,11 +491,11 @@ svg {
     left: 8vw;
   }
   .cap {
-    position: absolute;
+    /* position: absolute; */
     left: 27vw;
   }
   .btn-spin {
-    position: absolute;
+    /* position: absolute; */
     top: 3vh;
     left: 18vw;
   }
@@ -510,4 +512,13 @@ svg {
 }
 #perticipents p {
   padding: 5px;
+}
+.main-div {
+  outline: 3px solid yellowgreen;
+}
+.content-container {
+  width: 70vw;
+  /* position: absolute; */
+  top: 90vh;
+  /* overflow-y: scroll; */
 }
