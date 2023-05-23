@@ -1,6 +1,7 @@
 const submitButton = document.getElementById("submit-btn");
 const resetButton = document.getElementById("reset-btn");
 const inputID = document.getElementById("inputId");
+const insertName = document.getElementById("insert-name");
 const prizes = [
   {
     text: "10% Off Sticker Price",
@@ -25,6 +26,7 @@ const prizes = [
   },
 ];
 const reaction = ["dancing", "shocked", "resting", "laughing"];
+const perticipents = [];
 
 const wheel = document.querySelector(".deal-wheel");
 const spinner = wheel.querySelector(".spinner");
@@ -167,9 +169,17 @@ document.addEventListener("DOMContentLoaded", function () {
         reaction: "shocked",
       };
       prizes.push(newObg);
+      perticipents.push(inputID.value);
+      const newPerticipents = `<div id="perticipents"><p style="display:inline-block; margin-left:50px; " >${inputID.value}</p><i class="material-icons" style="font-size:20px;color:red; margin-left:10px;">delete</i>
+    </div>`;
+      insertName.insertAdjacentHTML("beforeend", newPerticipents);
       spinner.innerHTML = "";
       inputID.value = "";
       setupWheel();
     }
+  });
+  resetButton.addEventListener("click", () => {
+    prizes.splice(0);
+    spinner.innerHTML = "";
   });
 });
