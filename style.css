@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  outline: 2px solid greenyellow;
+  /* outline: 2px solid greenyellow; */
 }
 
 html,
@@ -475,6 +475,14 @@ svg {
     top: 3vh;
     left: 18vw;
   }
+  #submit-btn {
+    width: 10vw;
+    height: 3vh;
+  }
+  #reset-btn {
+    width: 10vw;
+    height: 3vh;
+  }
 }
 @media screen and (max-width: 350px) {
   .deal-wheel {
@@ -489,4 +497,17 @@ svg {
     top: 3vh;
     left: 18vw;
   }
+}
+#perticipents {
+  border: 2px solid black;
+  margin: 10px;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+#perticipents i {
+  float: right;
+  padding: 5px;
+}
+#perticipents p {
+  padding: 5px;
 }
