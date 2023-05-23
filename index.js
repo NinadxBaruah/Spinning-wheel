@@ -2,34 +2,43 @@ const submitButton = document.getElementById("submit-btn");
 const resetButton = document.getElementById("reset-btn");
 const inputID = document.getElementById("inputId");
 const insertName = document.getElementById("insert-name");
+let deleteIcons = document.querySelectorAll(".delete-icon");
+let deleteIconsArray = Array.from(deleteIcons);
+console.log(deleteIconsArray);
 const prizes = [
   {
-    text: "10% Off Sticker Price",
+    text: "emma",
     color: "hsl(197 30% 43%)",
     reaction: "dancing",
   },
 
   {
-    text: "No Money Down",
+    text: "ben",
     color: "hsl(43 74% 66%)",
-    reaction: "shocked",
+    reaction: "laughing",
   },
   {
-    text: "ninad",
+    text: "hannah",
     color: "hsl(33 74% 66%)",
-    reaction: "shocked",
+    reaction: "resting",
   },
   {
-    text: "jdbe",
+    text: "leon",
     color: "hsl(88 74% 66%)",
     reaction: "shocked",
   },
+  {
+    text: "mia",
+    color: "hsl(18 94% 66%)",
+    reaction: "dancing",
+  },
 ];
 const reaction = ["dancing", "shocked", "resting", "laughing"];
-const perticipents = [];
+const perticipents = ["emma", "ben", "hannah", "leon", "mia"];
 
 const wheel = document.querySelector(".deal-wheel");
 const spinner = wheel.querySelector(".spinner");
+
 const trigger = wheel.querySelector(".btn-spin");
 const ticker = wheel.querySelector(".ticker");
 const reaper = wheel.querySelector(".grim-reaper");
@@ -110,6 +119,7 @@ const selectPrize = () => {
   const selected = Math.floor(rotation / prizeSlice);
   prizeNodes[selected].classList.add(selectedClass);
   reaper.dataset.reaction = prizeNodes[selected].dataset.reaction;
+  console.log(selected);
 };
 
 trigger.addEventListener("click", () => {
@@ -157,29 +167,66 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       // const getRandomReaction = ;
       // const getRandomColor = ;
-      const newInput = inputID.value;
+      const newInput = inputID.value.toLowerCase();
       const newObg = {
         text: newInput,
         color: getRandomColor(),
         reaction: getRandomReaction(),
       };
-      const nv = {
-        text: "baruah",
-        color: "hsl(11 74% 66%)",
-        reaction: "shocked",
-      };
+
       prizes.push(newObg);
-      perticipents.push(inputID.value);
-      const newPerticipents = `<div id="perticipents"><p style="display:inline-block; margin-left:50px; " >${inputID.value}</p><i class="material-icons" style="font-size:20px;color:red; margin-left:10px;">delete</i>
+      perticipents.push(newInput);
+      const newPerticipents = `<div id="perticipents"><p style="display:inline-block; margin-left:50px; " >${inputID.value}</p><i class="material-icons delete-icon"   style="font-size:20px;color:red; margin-left:10px;">delete</i>
     </div>`;
       insertName.insertAdjacentHTML("beforeend", newPerticipents);
+
       spinner.innerHTML = "";
       inputID.value = "";
+
       setupWheel();
     }
   });
   resetButton.addEventListener("click", () => {
+    insertName.innerHTML = "";
+    perticipents.splice(0);
     prizes.splice(0);
     spinner.innerHTML = "";
+  });
+  function handleDeleteClick(event) {
+    const deleteIcon = event.target;
+    const thisparentElement = deleteIcon.parentElement;
+    const pElement = thisparentElement.querySelector("p");
+    const innertext = pElement.innerText;
+    console.log(innertext);
+
+    for (let i = 0; i < prizes.length; i++) {
+      if (prizes[i].text.toLowerCase() === innertext.toLowerCase()) {
+        prizes.splice(i, 1);
+        i--; // Adjust the loop index to account for the removed object
+      }
+    }
+    spinner.innerHTML = "";
+    setupWheel();
+
+    for (let i = 0; i < perticipents.length; i++) {
+      if (perticipents[i].toLowerCase() === innertext.toLowerCase()) {
+        perticipents.splice(i, 1);
+        i--; // Adjust the loop index to account for the removed element
+      }
+    }
+
+    console.log(perticipents);
+
+    const parentElement = event.target.parentElement;
+    parentElement.remove();
+  }
+  // deleteIconsArray.forEach((deleteIcon) => {
+  //   deleteIcon.addEventListener("click", handleDeleteClick);
+  // });
+
+  insertName.addEventListener("click", (event) => {
+    if (event.target.classList.contains("delete-icon")) {
+      handleDeleteClick(event);
+    }
   });
 });
