@@ -4,6 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Germania One", cursive;
   /* outline: 2px solid greenyellow; */
 }
 
@@ -361,42 +362,52 @@ svg {
   }
 }
 
-.container {
-  background-color: bisque;
-}
-
 .input-container {
   margin-top: 3vh;
   margin-left: 3vh;
   height: 100%;
   overflow-x: scroll;
+  overflow-x: hidden;
 }
 .input-container input {
-  width: 17vw;
+  width: 100%;
   height: 3.5vh;
 }
 #submit-btn {
   width: 3vw;
   font-size: 1vw;
   height: 3.5vh;
-  /* margin-left: 2vh;
-  margin-right: 2vh; */
+  margin: 5px;
+  margin-left: 50px;
 }
 #reset-btn {
   width: 3vw;
-  height: 3.5vh;
   font-size: 1vw;
-  /* margin-right: 2vh; */
-  padding: 0.1vw;
+  height: 3.5vh;
+  margin: 5px;
+}
+#add-file {
+  width: 5vw;
+  font-size: 1vw;
+  height: 3.5vh;
+  margin: 5px;
+  display: inline-block;
 }
 .wheel-container {
   border: 2px solid black;
-  /* position: absolute; */
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
   left: 18vw;
+  height: 100%;
 }
 .ip-container {
   border: 2px solid black;
-
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
   /* position: absolute; */
   right: 18vw;
   top: 10.7vh;
@@ -418,36 +429,63 @@ svg {
     top: 0;
     width: 100%;
     height: 100%;
+    border-left: 2px solid black;
+    border-radius: 20px 20px 20px 20px;
+    overflow-y: hidden;
+  }
+  .ip-container input {
+    width: 100%;
+  }
+  #add-file {
+    margin-top: 25px;
+    width: 100px;
+  }
+  #reset-btn {
+    width: 100px;
+    margin-top: 25px;
+  }
+  #submit-btn {
+    width: 100px;
+    margin-top: 25px;
   }
   .main-div {
     flex-direction: column;
     height: 100%;
   }
   .input-container input {
-    width: 70%;
     height: 3.5vh;
   }
-  #submit-btn {
-    width: 14%;
-  }
-  #reset-btn {
-    width: 14%;
-    margin-right: 0;
-  }
+
   .wheel-container {
     top: 0;
     position: relative;
     justify-content: center;
     left: 0;
+    border-right: 2px solid black;
+    border-radius: 20px 20px 20px 20px;
   }
 }
 @media screen and (max-width: 750px) {
   .ip-container {
     width: 67vw;
   }
-  .input-container input {
-    width: 70%;
-    height: 3.5vh;
+  .ip-container input {
+    width: 100%;
+  }
+  #add-file {
+    margin-top: 25px;
+    width: 100px;
+  }
+  #reset-btn {
+    width: 100px;
+    margin-top: 25px;
+  }
+  #submit-btn {
+    width: 100px;
+    margin-top: 25px;
+  }
+  #perticipents {
+    margin-left: 0px;
   }
   #submit-btn {
     width: 14%;
@@ -466,16 +504,19 @@ svg {
   .ip-container {
     top: 0vh;
     width: 95vw;
+    border-radius: 3px 3px 3px 3px;
   }
+
   .ip-container input {
     margin-left: 0;
   }
   .wheel-container {
     width: 95vw;
+    border-radius: 3px 3px 3px 3px;
   }
   .deal-wheel {
     left: 12vw;
-    outline: 5px solid black;
+    /* outline: 5px solid black; */
     width: 70vw;
   }
   .cap {
@@ -526,7 +567,7 @@ svg {
   padding: 5px;
 }
 .main-div {
-  outline: 3px solid yellowgreen;
+  /* outline: 3px solid yellowgreen; */
   display: flex;
 }
 .content-container {
@@ -536,10 +577,12 @@ svg {
   /* overflow-y: scroll; */
 }
 .textarea {
+  outline: 2px solid red;
   width: 59%;
-  height: 100%;
+  height: 120%;
+  margin-top: 5vh;
 }
 .textarea textarea {
   width: 100%;
-  height: 100px;
+  height: 100%;
 }
