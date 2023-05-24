@@ -35,7 +35,7 @@ const prizes = [
   },
 ];
 const reaction = ["dancing", "shocked", "resting", "laughing"];
-const perticipents = ["emma", "ben", "hannah", "leon", "mia"];
+let perticipents = ["emma", "ben", "hannah", "leon", "mia"];
 
 const wheel = document.querySelector(".deal-wheel");
 const spinner = wheel.querySelector(".spinner");
@@ -160,7 +160,7 @@ function getRandomReaction() {
   return reaction[randomIndex];
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function async() {
   // Add event listener for the button click using an arrow function
   submitButton.addEventListener("click", () => {
     if (inputID.value === "") {
@@ -230,4 +230,65 @@ document.addEventListener("DOMContentLoaded", function () {
       handleDeleteClick(event);
     }
   });
+  // Array to store participants
+  let newPerticipents = [];
+
+  // Function to handle button click
+  function handleAddFileButtonClick() {
+    const input = document.createElement("input");
+    input.type = "file";
+
+    input.addEventListener("change", function (event) {
+      const confirmMessage = `Do you want to add the following names to the participants array?`;
+      const shouldAdd = window.confirm(confirmMessage);
+
+      if (shouldAdd) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          const contents = e.target.result;
+          newPerticipents = contents.split(",").map((name) => name.trim());
+          perticipents.splice(0);
+
+          perticipents = newPerticipents;
+          //appending inputs
+          insertName.innerHTML = "";
+          for (i = 0; i < perticipents.length; i++) {
+            const newPerticipentsFromFile = `<div id="perticipents"><p style="display:inline-block; margin-left:50px; " >${perticipents[i]}</p><i class="material-icons delete-icon"   style="font-size:20px;color:red; margin-left:10px;">delete</i>
+    </div>`;
+            insertName.insertAdjacentHTML("beforeend", newPerticipentsFromFile);
+          }
+          console.log(perticipents);
+
+          //now appending in the spinner
+          if (prizes.length > 0) {
+            prizes.splice(0);
+          }
+
+          spinner.innerHTML = "";
+
+          for (i = 0; i < newPerticipents.length; i++) {
+            const newObg = {
+              text: newPerticipents[i],
+              color: getRandomColor(),
+              reaction: getRandomReaction(),
+            };
+            prizes.push(newObg);
+          }
+          console.log(prizes, "prizes");
+          setupWheel();
+          //....................................
+        };
+
+        reader.readAsText(file);
+      }
+    });
+
+    input.click();
+  }
+
+  // Attach the handleButtonClick function to the button click event
+  const uploadButton = document.getElementById("add-file");
+  uploadButton.addEventListener("click", handleAddFileButtonClick);
 });
